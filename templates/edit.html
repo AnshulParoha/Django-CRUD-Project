@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+    <form method="POST" action="update">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{members.id}}">
+        <div class="form-group">
+            <label for="firstname">Firstname</label>
+            <input type="text" name="firstname" value="{{ members.firstname }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Lastname</label>
+            <input type="text" name="lastname" value="{{ members.lastname }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Contact</label>
+            <input type="number" name="contact" value="{{ members.contact }}" required="required" maxlength="10" placeholder="+91" />
+        </div>
+        <div class="form-group">
+            <label for="lastname">Address</label>
+            <input type="text" name="address" value="{{ members.address }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Update</button>
+        </div>
+    </form>
+{% endblock %}
